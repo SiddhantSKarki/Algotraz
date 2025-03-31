@@ -3,6 +3,8 @@
 ROOT_DIR="."
 BUILD_DIR="build/"
 SRC_DIR="src"
+# need to update this as we go on implementing other classes
+# once each package is complete we can simply add 'package/*.java'
 PACKAGE_DIRS=("$SRC_DIR/engine/ASCII.java" "$SRC_DIR/main/Algotraz.java")
 
 if [ -d "$BUILD_DIR" ]; then
