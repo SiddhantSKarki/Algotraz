@@ -13,7 +13,7 @@ public class Algotraz {
     }
 
     private static void displayIntroArt() {
-        String introArtPath = "src/data/ascii/welcome.txt"; // Dummy path for intro art
+        String introArtPath = "src/data/ascii/welcome.txt";
         ASCII asciiIntro = new ASCII(introArtPath);
         System.out.println(asciiIntro);
     }
@@ -33,6 +33,8 @@ public class Algotraz {
             switch (choice) {
                 case "1":
                 case "start game":
+                    // This is where we initialize the following:
+                    // Within initializeGame: Game Entities: Player, All Rooms, 
                     return;
                 case "2":
                 case "help":

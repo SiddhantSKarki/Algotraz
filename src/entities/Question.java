@@ -10,21 +10,23 @@ public class Question {
 	private int answer;
 
 	public void printQuestion() {
-
+		System.out.println("Question: " + question);
+		for (Map.Entry<Integer, String> entry : options.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
 	}
 
 	public Boolean checkPlayerAnswer(int param1) {
-		return null;
+		return answer == param1;
 	}
 
 	public String getQuestion() {
-		return null;
+		return this.question;
 	}
 
 	public Map<Integer, String> getOptions() {
-		return null;
+		return this.options;
 	}
-
 }
 
 class TrueFalseQuestion extends Question {
