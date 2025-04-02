@@ -8,7 +8,7 @@ public class InputValidator {
 	private Boolean isValid;
 
 	public void handleInvalidInput() {
-
+		
 	}
 
 	public void validateInput(String param1) {
