@@ -1,0 +1,22 @@
+Objective: Choose the correct answers to open the yard gate.
+
+Which of the following is a prerequisite for using Binary Search?
+A. The array must be unsorted
+B. The array must be sorted
+C. The array must contain only positive integers
+D. The array must not have duplicates
+✅ B
+
+What is the worst-case time complexity of Linear Search?
+A. O(1)
+B. O(log n)
+C. O(n)
+D. O(n log n)
+✅ C
+
+Which statement is TRUE about Binary Search?
+A. It always checks the last element first.
+B. It halves the search space each step.
+C. It only works on arrays of even length.
+D. It’s faster than Linear Search on unsorted data.
+✅ B
