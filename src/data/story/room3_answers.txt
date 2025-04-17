@@ -1,0 +1,5 @@
+Integer.toBinaryString(n ^ 0xFF)
+
+Integer.bitCount(n)
+
+Integer.toHexString(n)
