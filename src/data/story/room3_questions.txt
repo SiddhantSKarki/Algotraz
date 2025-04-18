@@ -1,0 +1,7 @@
+Objective: Input valid Java standard library expressions.
+
+Flip the bits of an 8-bit number n and print the binary string:
+
+Get the number of 1s in the binary representation of n:
+
+Convert the number n to a hexadecimal string:

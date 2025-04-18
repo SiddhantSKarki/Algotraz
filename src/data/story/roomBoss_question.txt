@@ -1,0 +1,8 @@
+Objective: Defeat Algopone using full knowledge.
+
+Question:
+You are given the following input:
+
+List<String> names = Arrays.asList("zeta", "alpha", "echo", "bravo");
+
+Write a one-liner that sorts the list alphabetically and prints it joined with -:

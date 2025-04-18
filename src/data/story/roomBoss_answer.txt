@@ -1,0 +1,1 @@
+System.out.println(names.stream().sorted().collect(Collectors.joining("-")));
