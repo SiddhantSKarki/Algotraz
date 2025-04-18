@@ -1,0 +1,1 @@
+Flip the bits of an 8-bit number n and print the binary string:

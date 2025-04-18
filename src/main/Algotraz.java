@@ -1,8 +1,7 @@
 package main;
 
-import java.util.Scanner;
-
 import engine.ASCII;
+import java.util.Scanner;
 
 // TODO: Each of these implementations use hardcoded paths
 // Write a AlgotrazConfig class that contains all configuration parameters such as file paths, data directories etc.
@@ -35,6 +34,7 @@ public class Algotraz {
                 case "start game":
                     // This is where we initialize the following:
                     // Within initializeGame: Game Entities: Player, All Rooms, 
+
                     return;
                 case "2":
                 case "help":

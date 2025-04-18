@@ -1,0 +1,5 @@
+What is the worst-case time complexity of Linear Search?
+A. O(1)
+B. O(log n)
+C. O(n)
+D. O(n log n)

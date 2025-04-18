@@ -1,0 +1,1 @@
+True or False: Merge Sort is a stable sorting algorithm.
