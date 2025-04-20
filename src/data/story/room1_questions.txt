@@ -1,7 +1,0 @@
-Objective: Answer at least 2 out of 3 correctly to unlock the cell.
-
-True or False: Merge Sort is a stable sorting algorithm.
-
-True or False: The average-case time complexity of Bubble Sort is O(n log n).
-
-True or False: Insertion Sort performs better than QuickSort on small or nearly sorted data sets.

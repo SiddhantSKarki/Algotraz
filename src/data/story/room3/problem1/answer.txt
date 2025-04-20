@@ -1,0 +1,1 @@
+Integer.toBinaryString(n ^ 0xFF)

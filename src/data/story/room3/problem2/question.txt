@@ -1,0 +1,1 @@
+Get the number of 1s in the binary representation of n:

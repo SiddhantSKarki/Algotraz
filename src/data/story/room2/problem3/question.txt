@@ -1,0 +1,5 @@
+Which statement is TRUE about Binary Search?
+A. It always checks the last element first.
+B. It halves the search space each step.
+C. It only works on arrays of even length.
+D. It’s faster than Linear Search on unsorted data.

@@ -1,90 +1,211 @@
 package entities;
-import java.util.Map;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
+/**
+ * Class: Question
+ * @author Alex Aussawalaithong, Siddhant S. Karki
+ * @version 1.0
+ * Course: CSE201
+ * Written: 04/18/2025
+ * 
+ * Purpose: This class represents a question in the game. 
+ * It can be a True/False question, a Multiple Choice question,
+ * or a Code question. Each question has a question text, a set of options,
+ * and an answer.
+ */
 public class Question {
 
-	private String question;
+	protected String question;
 
-	private Map<Integer, String> options;
+	protected String answer;
 
-	private int answer;
-
+	/**
+	 * Prints the question to the console.
+	 */
 	public void printQuestion() {
 		System.out.println("Question: " + question);
-		for (Map.Entry<Integer, String> entry : options.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
-		}
 	}
 
-	public Boolean checkPlayerAnswer(int param1) {
-		return answer == param1;
+	/**
+	 * Checks if the player's answer is correct.
+	 * 
+	 * @param input The player's answer.
+	 * @return true if the answer is correct, false otherwise.
+	 */
+	public boolean checkPlayerAnswer(String input) {
+		return answer.equalsIgnoreCase(input);
 	}
 
+	/**
+	 * Gets the question text.
+	 * 
+	 * @return The question text.
+	 */
 	public String getQuestion() {
 		return this.question;
 	}
-
-	public Map<Integer, String> getOptions() {
-		return this.options;
-	}
 }
 
+/**
+ * Class: TrueFalseQuestion
+ * @extends Question
+ * @author Alex Aussawalaithong, Siddhant S. Karki
+ * @version 1.0
+ * Course: CSE201
+ * Written: 04/18/2025
+ * 
+ * Purpose: This class represents a True/False question.
+ * It extends the Question class and provides
+ * functionality specific to True/False questions.
+ */
 class TrueFalseQuestion extends Question {
 
-	private boolean correctAnswer;
+    private boolean correctAnswer;
 
-	public boolean isCorrectAnswer() {
-		return correctAnswer;
-	}
+	/**
+	 * Constructor for TrueFalseQuestion.
+	 * Reads the question and answer from the specified path.
+	 * 
+	 * @param path The path to the question directory.
+	 * @throws IOException If there is an error reading the files.
+	 */
+    public TrueFalseQuestion(String path) {
+        try {
+			// get question directory path and answer file path
+			String questionPath = path + "/question.txt";
+			String answerPath = path + "/answer.txt";
 
-	public void setCorrectAnswer(boolean correctAnswer) {
-		this.correctAnswer = correctAnswer;
-	}
+			// Read the question from the file
+			this.question = Files.readString(Paths.get(questionPath)).trim();
 
+			// Read the answer from the file
+			String ans = Files.readString(Paths.get(answerPath)).trim();
+			this.correctAnswer = ans.equals("True");
+        } catch (IOException e) {
+            System.err.println("Error reading True/False question: " + e.getMessage());
+        }
+    }
+
+	/**
+	 * Checks if the player's answer is correct.
+	 * 
+	 * @param input The player's answer.
+	 * @return true if the answer is correct, false otherwise.
+	 */
 	@Override
-	public Boolean checkPlayerAnswer(int param1) {
-		return param1 == (correctAnswer ? 1 : 0);
-	}
+    public boolean checkPlayerAnswer(String input) {
+        // Convert input to lowercase for case-insensitive comparison
+		String lowerInput = input.toLowerCase();
+		return (lowerInput.equals("true") && correctAnswer) ||
+			(lowerInput.equals("false") && !correctAnswer);
+    }
 }
 
-class MultipleAnswerQuestion extends Question {
+/**
+ * Class: MultipleChoiceQuestion
+ * @extends Question
+ * @author Alex Aussawalaithong
+ * @version 1.0
+ * Course: CSE201
+ * Written: 04/18/2025
+ * 
+ * Purpose: This class represents a Multiple Choice question.
+ * It extends the Question class and provides
+ * functionality specific to Multiple Choice questions.
+ */
+class MultipleChoiceQuestion extends Question {
 
-	private int[] correctAnswers;
+	private char correctAnswer;
 
-	public int[] getCorrectAnswers() {
-		return correctAnswers;
-	}
+	/**
+	 * Constructor for MultipleChoiceQuestion.
+	 * Reads the question and answer from the specified path.
+	 * 
+	 * @param path The path to the question directory.
+	 * @throws IOException If there is an error reading the files.
+	 */
+	public MultipleChoiceQuestion(String path) {
+		try {
+			// get question directory path and answer file path
+			String questionPath = path + "/question.txt";
+			String answerPath = path + "/answer.txt";
 
-	public void setCorrectAnswers(int[] correctAnswers) {
-		this.correctAnswers = correctAnswers;
-	}
+			// Read the question from the file
+			this.question = Files.readString(Paths.get(questionPath)).trim();
 
-	@Override
-	public Boolean checkPlayerAnswer(int param1) {
-		for (int answer : correctAnswers) {
-			if (answer == param1) {
-				return true;
-			}
+			// Read the answer from the file
+			String ans = Files.readString(Paths.get(answerPath)).trim();
+			this.correctAnswer = ans.charAt(0);
+		} catch (IOException e) {
+			System.err.println("Error reading Multiple Choice question: "
+				+ e.getMessage());
 		}
-		return false;
+	}
+
+	/**
+	 * Checks if the player's answer is correct.
+	 * 
+	 * @param input The player's answer.
+	 * @return true if the answer is correct, false otherwise.
+	 */
+	@Override
+	public boolean checkPlayerAnswer(String input) {
+		// Convert input to lowercase for case-insensitive comparison
+		String lowerInput = input.toLowerCase();
+		return lowerInput.charAt(0) == correctAnswer;
 	}
 }
 
+/**
+ * Class: CodeQuestion
+ * @extends Question
+ * @author Alex Aussawalaithong
+ * @version 1.0
+ * Course: CSE201
+ * Written: 04/18/2025
+ * 
+ * Purpose: This class represents a Code question.
+ * It extends the Question class and provides
+ * functionality specific to Code questions.
+ */
 class CodeQuestion extends Question {
 
 	private String correctCode;
 
-	public String getCorrectCode() {
-		return correctCode;
+	/**
+	 * Constructor for CodeQuestion.
+	 * Reads the question and answer from the specified path.
+	 * 
+	 * @param path The path to the question directory.
+	 * @throws IOException If there is an error reading the files.
+	 */
+	public CodeQuestion(String path) {
+		try {
+			// get question directory path and answer file path
+			String questionPath = path + "/question.txt";
+			String answerPath = path + "/answer.txt";
+
+			// Read the question from the file
+			this.question = Files.readString(Paths.get(questionPath)).trim();
+
+			// Read the answer from the file
+			this.correctCode = Files.readString(Paths.get(answerPath)).trim();
+		} catch (IOException e) {
+			System.err.println("Error reading Code question: " + e.getMessage());
+		}
 	}
 
-	public void setCorrectCode(String correctCode) {
-		this.correctCode = correctCode;
-	}
-
+	/**
+	 * Checks if the player's answer is correct.
+	 * 
+	 * @param input The player's answer.
+	 * @return true if the answer is correct, false otherwise.
+	 */
 	@Override
-	public Boolean checkPlayerAnswer(int param1) {
-		// This method might need to be overridden to handle code-specific logic
-		return null;
+	public boolean checkPlayerAnswer(String input) {
+		// Compare the input code with the correct code
+		return input.trim().equals(correctCode.trim());
 	}
 }

@@ -1,0 +1,1 @@
+True or False: Insertion Sort performs better than QuickSort on small or nearly sorted data sets.
