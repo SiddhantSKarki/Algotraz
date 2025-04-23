@@ -153,8 +153,8 @@ class MultipleChoiceQuestion extends Question {
 	@Override
 	public boolean checkPlayerAnswer(String input) {
 		// Convert input to lowercase for case-insensitive comparison
-		String lowerInput = input.toLowerCase();
-		return lowerInput.charAt(0) == correctAnswer;
+		String upperInput = input.toUpperCase();
+		return upperInput.charAt(0) == correctAnswer;
 	}
 }
 

@@ -11,8 +11,8 @@ public class InputValidator {
 		
 	}
 
-	public void validateInput(String param1) {
-
+	public boolean validateInput(String param1) {
+		return true;
 	}
 
 }

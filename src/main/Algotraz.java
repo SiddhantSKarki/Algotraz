@@ -1,6 +1,9 @@
 package main;
 
 import engine.ASCII;
+import engine.Engine;
+import entities.Player;
+
 import java.util.Scanner;
 
 // TODO: Each of these implementations use hardcoded paths
@@ -34,6 +37,10 @@ public class Algotraz {
                 case "start game":
                     // This is where we initialize the following:
                     // Within initializeGame: Game Entities: Player, All Rooms, 
+                    Player prisoner = new Player("1", "Pris(O)ner");
+                    Engine gameEngine = new Engine(prisoner);
+
+                    gameEngine.startGame();
 
                     return;
                 case "2":
