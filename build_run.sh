@@ -3,7 +3,6 @@
 ROOT_DIR="."
 BUILD_DIR="build/"
 SRC_DIR="src"
-ROOM_TESTING_DIR="room_testing"
 # need to update this as we go on implementing other classes
 # once each package is complete we can simply add 'package/*.java'
 
@@ -13,7 +12,7 @@ PACKAGE_DIRS=(
     "$SRC_DIR/engine/*.java"
     "$SRC_DIR/main/*.java"
     "$SRC_DIR/entities/*.java"
-    "$SRC_DIR/RoomTest.java"
+    "$SRC_DIR/main/Algotraz.java"
 )
 
 if [ -d "$BUILD_DIR" ]; then
@@ -33,7 +32,7 @@ else
 fi
 
 echo "Running the project...."
-MAIN_CLASS="RoomTest"
+MAIN_CLASS="main.Algotraz"
 if ! java -cp "$BUILD_DIR" "$MAIN_CLASS"; then
     echo "Error: Failed to run the project"
     exit 1

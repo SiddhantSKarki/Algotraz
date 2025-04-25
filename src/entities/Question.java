@@ -21,6 +21,9 @@ public class Question {
 
 	protected String answer;
 
+	protected int scoreWeight;
+
+
 	/**
 	 * Prints the question to the console.
 	 */
@@ -45,6 +48,14 @@ public class Question {
 	 */
 	public String getQuestion() {
 		return this.question;
+	}
+
+	public int getScoreWeight() {
+		return this.scoreWeight;
+	}
+
+	public void setScoreWeight(int scoreWeight) {
+		this.scoreWeight = scoreWeight;
 	}
 }
 
@@ -72,6 +83,7 @@ class TrueFalseQuestion extends Question {
 	 * @throws IOException If there is an error reading the files.
 	 */
     public TrueFalseQuestion(String path) {
+		this.scoreWeight = 20; // Set the score weight for True/False questions
         try {
 			// get question directory path and answer file path
 			String questionPath = path + "/question.txt";
@@ -87,6 +99,7 @@ class TrueFalseQuestion extends Question {
             System.err.println("Error reading True/False question: " + e.getMessage());
         }
     }
+
 
 	/**
 	 * Checks if the player's answer is correct.
@@ -127,6 +140,7 @@ class MultipleChoiceQuestion extends Question {
 	 * @throws IOException If there is an error reading the files.
 	 */
 	public MultipleChoiceQuestion(String path) {
+		this.scoreWeight = 30; // Set the score weight for True/False questions
 		try {
 			// get question directory path and answer file path
 			String questionPath = path + "/question.txt";
@@ -153,8 +167,8 @@ class MultipleChoiceQuestion extends Question {
 	@Override
 	public boolean checkPlayerAnswer(String input) {
 		// Convert input to lowercase for case-insensitive comparison
-		String lowerInput = input.toLowerCase();
-		return lowerInput.charAt(0) == correctAnswer;
+		String upperInput = input.toUpperCase();
+		return upperInput.charAt(0) == correctAnswer;
 	}
 }
 
@@ -182,6 +196,7 @@ class CodeQuestion extends Question {
 	 * @throws IOException If there is an error reading the files.
 	 */
 	public CodeQuestion(String path) {
+		this.scoreWeight = 50; // Set the score weight for Code questions
 		try {
 			// get question directory path and answer file path
 			String questionPath = path + "/question.txt";
