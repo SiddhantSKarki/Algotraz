@@ -5,10 +5,6 @@ package entities;
  * and manage its running state. It allows starting, stopping, resetting, 
  * and setting the timer, as well as retrieving the elapsed time in seconds.
  * 
- * <p>This class is useful for tracking time intervals in various applications.
- * The timer maintains its state and ensures accurate timekeeping even when 
- * paused and resumed.
- * 
  * <h2>Features:</h2>
  * <ul>
  *   <li>Start the timer</li>
@@ -17,24 +13,6 @@ package entities;
  *   <li>Set elapsed time</li>
  *   <li>Retrieve elapsed time</li>
  * </ul>
- * 
- * <h2>Usage Example:</h2>
- * <pre>{@code
- * Timer timer = new Timer();
- * timer.startTime();
- * // Perform some operations
- * timer.stopTime();
- * System.out.println("Elapsed time: " + timer.getElapsedTime() + " seconds");
- * }</pre>
- * 
- * <h2>Thread Safety:</h2>
- * This class is not thread-safe. If multiple threads access a single instance 
- * of {@code Timer}, external synchronization is required.
- * 
- * <h2>Implementation Notes:</h2>
- * The timer uses the system's current time in milliseconds to calculate 
- * elapsed time. The elapsed time is stored in milliseconds internally but 
- * is returned in seconds for user convenience.
  * 
  * @author John Jones
  * @version 1.0
@@ -60,13 +38,6 @@ public class Timer {
 	 * Starts the timer if it is not already running. 
 	 * The timer's start time is set to the current system time minus the elapsed time,
 	 * ensuring that the timer resumes from where it was paused.
-	 * 
-	 * Preconditions:
-	 * - The timer must not already be running.
-	 * 
-	 * Postconditions:
-	 * - The timer's `running` state is set to true.
-	 * - The timer's `startTime` is updated to account for any previously elapsed time.
 	 */
 	public void startTime() {
 		if (!running) {

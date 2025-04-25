@@ -10,45 +10,19 @@ import java.util.Scanner;
 
 
 /**
- * The {@code Engine} class serves as the core of the game logic, managing the player,
- * rooms, questions, and game state. It provides methods to initialize the game,
- * retrieve and update game components, and handle the progression of the game.
+ * The {@code Engine} class manages the core game logic, including the player,
+ * rooms, questions, and game state. It handles game initialization, progression,
+ * and updates based on player input.
  * 
- * <p>Key responsibilities of the {@code Engine} class include:
+ * <p>Main responsibilities:
  * <ul>
- *   <li>Initializing the game with a player and predefined rooms.</li>
- *   <li>Managing the current room and question within the game.</li>
- *   <li>Handling player input and validating answers to questions.</li>
- *   <li>Updating the game state based on the player's progress and correctness of answers.</li>
+ *   <li>Initialize the game with a player and rooms.</li>
+ *   <li>Track the current room and question.</li>
+ *   <li>Validate player answers and update the game state.</li>
  * </ul>
  * 
- * <p>The game is structured into multiple rooms, each containing a set of questions.
- * The player progresses through the rooms by answering questions correctly. The game
- * ends when the player completes all rooms or chooses to exit.
- * 
- * <p>Usage:
- * <pre>
- * {@code
- * Player player = new Player("playerID", "playerName");
- * Engine engine = new Engine(player);
- * engine.startGame();
- * }
- * </pre>
- * 
- * <p>Dependencies:
- * <ul>
- *   <li>{@link Player} - Represents the player in the game.</li>
- *   <li>{@link Room} - Represents a room containing questions.</li>
- *   <li>{@link Question} - Represents a question within a room.</li>
- *   <li>{@link ASCII} - Handles ASCII-based display for the game.</li>
- * </ul>
- * 
- * <p>Note: The {@code startGame()} method runs in an infinite loop and should be
- * terminated externally when the game ends or the player exits.
- * 
- * @author John Jones
+ * @author John
  * @version 1.0
- * @since 2023
  */
 public class Engine {
 
@@ -64,21 +38,12 @@ public class Engine {
 
 
 	/**
-	 * Constructs an Engine object for the game.
+	 * Creates an Engine object to manage the game.
 	 *
-	 * @param player The player object representing the current player.
-	 *               This is used to initialize the game with the player's ID and name.
+	 * @param player The player object used to initialize the game.
 	 *
-	 * The constructor performs the following:
-	 * <ul>
-	 *   <li>Sets the player for the engine using {@code setPlayer(player)}.</li>
-	 *   <li>Initializes the game with the player's ID and name using {@code initializeGame(player.getId(), player.getName())}.</li>
-	 *   <li>Creates a list of rooms by iterating through predefined room directory names.</li>
-	 *   <li>For each room directory, creates a {@code Room} object and adds it to the {@code rooms} list.</li>
-	 * </ul>
-	 *
-	 * Note: The {@code rooms} list is populated with {@code Room} objects created
-	 * from the directories located in {@code src/data/story/}.
+	 * This constructor sets up the player, initializes the game state,
+	 * and loads the rooms from predefined directories.
 	 */
 	public Engine(Player player) {
 		this.setPlayer(player);
@@ -191,9 +156,6 @@ public class Engine {
 	 *   <li>Processes the player's input and checks the correctness of their answers.</li>
 	 *   <li>Updates the game state based on the player's answers.</li>
 	 * </ul>
-	 * 
-	 * <p>This method runs in an infinite loop, so it should be terminated externally
-	 * when the game ends or when the player exits.
 	 */
 	public void startGame() {
 		// Get current room of the game
@@ -239,36 +201,17 @@ public class Engine {
 	}
 
 	/**
-	 * Updates the game state based on whether the player's answer is correct.
-	 * This method handles the progression of questions and rooms in the game.
+	 * Updates the game state based on the player's answer.
 	 *
-	 * @param playerCorrect A boolean indicating if the player's answer is correct.
-	 *                      - If true, the player progresses to the next question or room.
-	 *                      - If false, the game acknowledges the incorrect answer.
+	 * @param playerCorrect True if the player's answer is correct, false otherwise.
 	 *
-	 * <p>Behavior:</p>
-	 * <ul>
-	 *   <li>If the player's answer is correct:
-	 *     <ul>
-	 *       <li>For questions 1 and 2, the player moves to the next question.</li>
-	 *       <li>For question 3:
-	 *         <ul>
-	 *           <li>If the player is in the final room (room 3), the game is completed.</li>
-	 *           <li>Otherwise, the player's score is checked against the room threshold, and they
-	 *               progress to the next room with the first question.</li>
-	 *         </ul>
-	 *       </li>
-	 *     </ul>
-	 *   </li>
-	 *   <li>If the player's answer is incorrect, a message is displayed.</li>
-	 * </ul>
-	 *
-	 * <p>Additional Notes:</p>
-	 * <ul>
-	 *   <li>When the game is completed, the total score, average room time, and a winning message
-	 *       should be displayed.</li>
-	 *   <li>Room descriptions are printed when entering a new room.</li>
-	 * </ul>
+	 * <p> If correct:
+	 * - Moves to the next question or room.
+	 * - Completes the game if in the final room and question.
+	 * </p><p>
+	 * If incorrect:
+	 * - Displays an incorrect message.
+	 * </p>
 	 */
 	public void updateGameState(boolean playerCorrect) {
 		// TODO Switch statement first, then check if theyre right, always go to next question
