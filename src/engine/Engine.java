@@ -21,7 +21,7 @@ import java.util.Scanner;
  *   <li>Validate player answers and update the game state.</li>
  * </ul>
  * 
- * @author John
+ * @author John Jones
  * @version 1.0
  */
 public class Engine {
