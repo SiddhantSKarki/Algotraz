@@ -2,6 +2,7 @@ package engine;
 
 import entities.Player;
 import entities.Room;
+import entities.Timer;
 import entities.Question;
 
 import java.util.ArrayList;
@@ -28,13 +29,19 @@ public class Engine {
 
 	private Player player;
 
-	private List<Room> rooms;
+	private ArrayList<Room> rooms;
 
 	private ASCII asciiDisplay;
+
+	private Timer gameTimer;
 
 	private int currentRoom;
 
 	private int currentQuestion;
+
+	private boolean gameComplete = false;
+
+	private int playerScore = 0;
 
 
 	/**
@@ -48,6 +55,7 @@ public class Engine {
 	public Engine(Player player) {
 		this.setPlayer(player);
 		initializeGame(player.getId(), player.getName());
+		this.gameTimer = new Timer();
 
 		// Array of room directory names
         String[] roomDirs = { "room1", "room2", "room3" };
@@ -97,7 +105,7 @@ public class Engine {
 	 *
 	 * @param rooms the list of Room objects to be set
 	 */
-	public void setRooms(List<Room> rooms) {
+	public void setRooms(ArrayList<Room> rooms) {
 		this.rooms = rooms;
 	}
 
@@ -133,6 +141,24 @@ public class Engine {
 	}
 
 	/**
+	 * Retrieves the player's current score.
+	 *
+	 * @return the player's score as an integer.
+	 */
+	public int getPlayerScore() {
+		return this.playerScore;
+	}
+
+	/**
+	 * Sets the player's score.
+	 *
+	 * @param playerScore the score to be assigned to the player.
+	 */
+	public void setPlayerScore(int playerScore) {
+		this.playerScore = playerScore;
+	}
+
+	/**
 	 * Retrieves the current question from the specified room based on the given question index.
 	 *
 	 * @param quesIndex The index of the question to retrieve (1-based index).
@@ -164,25 +190,33 @@ public class Engine {
 		// Print to output
 		System.out.println("\n\n=== Entering Room " + currentRoom + " ===\n");
 		System.out.println(roomDescription + "\n");
+		
+		Scanner scanner = new Scanner(System.in);
 
-		while (true) {	
-			Scanner scanner = new Scanner(System.in);
+		while (!gameComplete) {	
 			Question question = getCurrentQuestion(currentQuestion);		
 			
 			System.out.println("Problem " + currentQuestion + "\n" + question.getQuestion());
 			System.out.print("Your answer: ");
 
+			// Reset and start timer
+			gameTimer.resetTime();
+			gameTimer.startTime();
+
 			// Get input and validate using processInput
 			String playerAnswer = scanner.nextLine().trim();
+
+			// Stop timer
+			gameTimer.stopTime();
 
 			// Check if right from Question class
 			boolean correct = question.checkPlayerAnswer(playerAnswer);
 
 			// Pass to update game state
 			this.updateGameState(correct);
-
-			scanner.close();
 		}
+
+		scanner.close();
 	}
 
 	/**
@@ -214,6 +248,26 @@ public class Engine {
 	 * </p>
 	 */
 	public void updateGameState(boolean playerCorrect) {
+		if (playerCorrect) {
+			switch (currentQuestion) {
+				case 1:
+				
+					break;
+				case 2:
+				
+					break;
+				case 3:
+					// TODO Check if player score meets room threshold
+					break;
+				default:
+					break;
+			}
+		} else {
+
+		}
+
+
+
 		// TODO Switch statement first, then check if theyre right, always go to next question
 		// Update points differently 
 		
@@ -230,6 +284,7 @@ public class Engine {
 					// Check if at final room
 					if (currentRoom == 3) {
 						// Game complete
+						gameComplete = true;
 
 						// TODO Display total score, average room time, return to start menu
 						// TODO Winning ASCII
