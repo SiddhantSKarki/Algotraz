@@ -1,0 +1,22 @@
+==================================================
+        A L G O T R A Z   F A I L U R E
+==================================================
+
+   +--------------------------------------------+
+   |   SYSTEM STATUS:                           |
+   |                                            |
+   |   > BRUTE FORCE ATTEMPT DETECTED           |
+   |   > FIREWALL LOCKED YOU OUT                |
+   |   > BACKDOOR PATCHED MID-EXECUTION         |
+   |   > GUARD AI ALERTED                       |
+   |                                            |
+   |   >>>> ESCAPE FAILED <<<<                  |
+   +--------------------------------------------+
+
+   The lights flicker.  
+   The sirens scream.  
+   Your keyboard is ripped from your hands.  
+
+   They found you before you found the exit.
+
+   GAME OVER.
