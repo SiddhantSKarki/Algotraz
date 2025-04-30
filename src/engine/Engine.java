@@ -330,6 +330,10 @@ public class Engine {
 						System.out.println("\n\nAverage time per question: " + averageQuestionTime + " seconds");
 						System.out.println("Average time per room: " + (totalTime / 3) + " seconds");
 						System.out.println("Total time: " + totalTime + " seconds\n");
+						System.out.println("Total points: " + totalPlayerScore() + "\n");
+						System.out.println("Points required to win: "
+								+ (rooms.stream().mapToInt(Room::getRoomThreshold).sum() + 500) + "\n");
+						System.out.println("Game complete! Thanks for playing!\n");
 
 					} else {
 						// Move to next room
