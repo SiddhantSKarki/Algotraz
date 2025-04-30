@@ -44,6 +44,9 @@ public class ASCII {
 	 */
 	public void readFile(String param1) throws FileNotFoundException {
 		Scanner file = new Scanner(new File(param1));
+
+		this.asciiString = "";
+
 		while (file.hasNextLine()) {
 			this.asciiString += file.nextLine() + "\n";
 		}
