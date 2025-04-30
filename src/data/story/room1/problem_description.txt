@@ -4,7 +4,7 @@ Level 1: The Basement (Encryption)
 ║         |       |    You wake up in a dark prison cell.             ║
 ║         |  O O  |    A flickering light above, a terminal blinks.   ║
 ║         |   >   |                                                   ║
-║         |  ___  |    --> Objective: Answer TRUE/FALSE questions    	║
+║         |  ___  |    --> Objective: Answer TRUE/FALSE questions   	║
 ║         |_______|      about encryption.                            ║
 ║                      Get 3 right to unlock the hatch.              	║
 ╚ ════════════════════════════════════════════════════════════════════╝
