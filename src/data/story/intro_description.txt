@@ -1,5 +1,5 @@
 You wake up on a cold, steel bench, the flickering fluorescent light overhead buzzing like an infinite loop with no escape condition. 
-Your prison uniform, marked with the number O(n), feels heavy—not just with fabric, but with the weight of inefficiency. 
+Your prison uniform, marked with the number O(n), feels heavy-not just with fabric, but with the weight of inefficiency. 
 The reinforced digital bars hum with encrypted locks, and the ever-watchful warden, Algopone, prowls the halls. 
 Ensuring that no algorithm -- no matter how optimized -- breaks free.
 
