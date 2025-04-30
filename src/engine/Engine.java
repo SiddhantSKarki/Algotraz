@@ -307,13 +307,15 @@ public class Engine {
 
 							// Check if player score is greater than total points of all rooms
 							if (totalPlayerScore() > rooms.stream()
-									.mapToInt(Room::getRoomThreshold).sum()) {
+									.mapToInt(Room::getRoomThreshold).sum() + 500) {
 								fileScanner = new Scanner(new java.io.File("src/data/story/youWin.txt"));
 								asciiDisplay.readFile("src/data/ascii/youWinASCII.txt");
 							} else {
 								fileScanner = new Scanner(new java.io.File("src/data/story/gameOver.txt"));
 								asciiDisplay.readFile("src/data/ascii/gameOverASCII.txt");
 							}
+
+							System.out.println(asciiDisplay.toString());
 
 							while (fileScanner.hasNextLine()) {
 								System.out.println(fileScanner.nextLine());
