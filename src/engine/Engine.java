@@ -184,6 +184,15 @@ public class Engine {
 	}
 
 	/**
+	 * Clears the output screen by printing escape sequences to reset the console.
+	 * This method is used to clear the console output for a fresh display.
+	 */
+	public void clearOutput() {
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
+
+	/**
 	 * Starts the game by entering the current room and presenting questions to the
 	 * player.
 	 * The method continuously prompts the player for answers to questions and
@@ -205,10 +214,9 @@ public class Engine {
 		String roomDescription = getCurrentRoom(currentRoom).getDescription();
 
 		// Print to output
+		clearOutput();
 		System.out.println("\n\n=== Entering Room " + currentRoom + " ===\n");
 		System.out.println(roomDescription + "\n");
-
-		// Scanner scanner = new Scanner(System.in);
 
 		while (!gameComplete) {
 			Question question = getCurrentQuestion(currentQuestion);
@@ -336,6 +344,8 @@ public class Engine {
 						System.out.println("Game complete! Thanks for playing!\n");
 
 					} else {
+						clearOutput();
+
 						// Move to next room
 						System.out.println(
 								"Room threshold met! Moving to next room.\nRoom points: " + getPlayerScore(currentRoom)
@@ -352,6 +362,12 @@ public class Engine {
 						System.out.println(roomDescription + "\n");
 					}
 				} else {
+					clearOutput();
+
+					String roomDescription = getCurrentRoom(currentRoom).getDescription();
+					System.out.println("\n\n=== Entering Room " + currentRoom + " ===\n");
+					System.out.println(roomDescription + "\n");
+
 					System.out.println("Not enough points to move to next room. Starting room over\n");
 					currentQuestion = 1;
 					playerPoints[currentRoom - 1] = 0;
