@@ -38,7 +38,17 @@ public class Algotraz {
                     Player prisoner = new Player("1", "Pris(O)ner");
                     Engine gameEngine = new Engine(prisoner);
 
-                    gameEngine.startGame();
+                    gameEngine.startGame(scanner);
+
+                    System.out.println("Would you like to play again? (y/n)");
+                    String playAgain = scanner.nextLine().trim().toLowerCase(); 
+                    if (playAgain.equals("y") || playAgain.equals("yes")) {
+                        displayIntroMenu(); // Restart the intro menu
+                    } else {
+                        System.out.println("Thank you for playing Algotraz! Goodbye!");
+                        scanner.close();
+                        System.exit(0);
+                    }
 
                     return;
                 case "2":

@@ -58,16 +58,16 @@ public class Engine {
 	 */
 	public Engine(Player player) {
 		this.setPlayer(player);
-		initializeGame(player.getId(), player.getName());
 		this.gameTimer = new Timer();
 		this.asciiDisplay = new ASCII("src/data/ascii/welcome.txt");
+		
+		// Initialize the game with the player ID and name
+		initializeGame(player.getId(), player.getName());
 
 		// Array of room directory names
 		String[] roomDirs = { "room1", "room2", "room3" };
 		int[] roomThresholds = { 250, 200, 100 };
 		rooms = new ArrayList<Room>();
-		questionTimes = new ArrayList<Integer>();
-		playerPoints = new int[3];
 
 		// Loop through each room directory
 		for (int i = 0; i < roomDirs.length; i++) {
@@ -200,7 +200,7 @@ public class Engine {
 	 * <li>Updates the game state based on the player's answers.</li>
 	 * </ul>
 	 */
-	public void startGame() {
+	public void startGame(Scanner scanner) {
 		// Get current room of the game
 		String roomDescription = getCurrentRoom(currentRoom).getDescription();
 
@@ -208,7 +208,7 @@ public class Engine {
 		System.out.println("\n\n=== Entering Room " + currentRoom + " ===\n");
 		System.out.println(roomDescription + "\n");
 
-		Scanner scanner = new Scanner(System.in);
+		// Scanner scanner = new Scanner(System.in);
 
 		while (!gameComplete) {
 			Question question = getCurrentQuestion(currentQuestion);
@@ -235,8 +235,6 @@ public class Engine {
 			// Pass to update game state
 			this.updateGameState(correct);
 		}
-
-		scanner.close();
 	}
 
 	/**
@@ -252,6 +250,12 @@ public class Engine {
 		// Set current room to first room in list
 		currentRoom = 1;
 		currentQuestion = 1;
+
+		gameComplete = false;
+		questionTimes = new ArrayList<Integer>();
+		playerPoints = new int[3];
+		// Reset game timer
+		gameTimer.resetTime();
 	}
 
 	/**
