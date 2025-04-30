@@ -64,7 +64,7 @@ public class Engine {
 
 		// Array of room directory names
 		String[] roomDirs = { "room1", "room2", "room3" };
-		int[] roomThresholds = { 400, 300, 200 };
+		int[] roomThresholds = { 250, 200, 100 };
 		rooms = new ArrayList<Room>();
 		questionTimes = new ArrayList<Integer>();
 		playerPoints = new int[3];
@@ -307,7 +307,7 @@ public class Engine {
 
 							// Check if player score is greater than total points of all rooms
 							if (totalPlayerScore() > rooms.stream()
-									.mapToInt(Room::getRoomThreshold).sum() + 500) {
+									.mapToInt(Room::getRoomThreshold).sum() + 400) {
 								fileScanner = new Scanner(new java.io.File("src/data/story/youWin.txt"));
 								asciiDisplay.readFile("src/data/ascii/youWinASCII.txt");
 							} else {
@@ -332,7 +332,7 @@ public class Engine {
 						System.out.println("Total time: " + totalTime + " seconds\n");
 						System.out.println("Total points: " + totalPlayerScore() + "\n");
 						System.out.println("Points required to win: "
-								+ (rooms.stream().mapToInt(Room::getRoomThreshold).sum() + 500) + "\n");
+								+ (rooms.stream().mapToInt(Room::getRoomThreshold).sum() + 400) + "\n");
 						System.out.println("Game complete! Thanks for playing!\n");
 
 					} else {
