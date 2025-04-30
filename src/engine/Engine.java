@@ -303,7 +303,7 @@ public class Engine {
 
 							// Check if player score is greater than total points of all rooms
 							if (totalPlayerScore() > rooms.stream()
-									.mapToInt(Room::getRoomThreshold).sum() + 400) {
+									.mapToInt(Room::getRoomThreshold).sum() + 200) {
 								fileScanner = new Scanner(new java.io.File("src/data/story/youWin.txt"));
 								asciiDisplay.readFile("src/data/ascii/youWinASCII.txt");
 							} else {
@@ -328,7 +328,7 @@ public class Engine {
 						System.out.println("Total time: " + totalTime + " seconds\n");
 						System.out.println("Total points: " + totalPlayerScore() + "\n");
 						System.out.println("Points required to win: "
-								+ (rooms.stream().mapToInt(Room::getRoomThreshold).sum() + 400) + "\n");
+								+ (rooms.stream().mapToInt(Room::getRoomThreshold).sum() + 200) + "\n");
 						System.out.println("Game complete! Thanks for playing!\n");
 
 					} else {
