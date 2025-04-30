@@ -3,8 +3,8 @@ Level 2: The Yard (Searching)
 ║        [  FENCED YARD  ]                                               ║
 ║       /----------------\    A keypad blocks the gate. Guards watch.    ║
 ║      |     ▓▓▓▓▓▓▓     |                                               ║
-║      |     ▓▓▓▓▓▓▓     |      --> Objective: Answer MULTIPLE CHOICE    ║
-║      |     ▓▓▓▓▓▓▓     |         questions on searching algorithms     ║
-║      |     ▓▓▓▓▓▓▓     |       (Binary, Linear, Best/Worst Case).      ║
-║       \----------------/     Get all correct to proceed.               ║
+║      |     ▓▓▓▓▓▓▓     |    --> Objective: Answer MULTIPLE CHOICE      ║
+║      |     ▓▓▓▓▓▓▓     |        questions on searching algorithms      ║
+║      |     ▓▓▓▓▓▓▓     |        (Binary, Linear, Best/Worst Case).     ║
+║       \----------------/    Get all correct to proceed.                ║
 ╚════════════════════════════════════════════════════════════════════════╝
