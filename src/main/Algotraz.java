@@ -6,8 +6,6 @@ import entities.Player;
 
 import java.util.Scanner;
 
-// TODO: Each of these implementations use hardcoded paths
-// Write a AlgotrazConfig class that contains all configuration parameters such as file paths, data directories etc.
 public class Algotraz {
     public static void main(String[] args) {
         displayIntroArt();
@@ -60,7 +58,6 @@ public class Algotraz {
     }
 
     private static void displayStoryLine() {
-        // TODO: Maybe convert these path into parameter?
         String storyPath = "src/data/story/intro_description.txt";
         ASCII asciiStory = new ASCII(storyPath);
         System.out.println(asciiStory);
