@@ -255,19 +255,15 @@ public class Engine {
 	}
 
 	/**
-	 * Updates the game state based on the player's answer.
+	 * Updates the game state based on the player's answer to the current question.
+	 * 
+	 * <p>
+	 * This method checks if the player's answer is correct and updates the player's
+	 * score accordingly.
+	 * It also handles room transitions and game completion logic.
 	 *
-	 * @param playerCorrect True if the player's answer is correct, false otherwise.
-	 *
-	 *                      <p>
-	 *                      If correct:
-	 *                      - Moves to the next question or room.
-	 *                      - Completes the game if in the final room and question.
-	 *                      </p>
-	 *                      <p>
-	 *                      If incorrect:
-	 *                      - Displays an incorrect message.
-	 *                      </p>
+	 * @param playerCorrect A boolean indicating whether the player's answer was
+	 *                      correct.
 	 */
 	public void updateGameState(boolean playerCorrect) {
 		int points = 0; // Initialize points
