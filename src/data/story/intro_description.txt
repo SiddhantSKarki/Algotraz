@@ -1,7 +1,14 @@
-You wake up on a cold, steel bench, the flickering fluorescent light overhead buzzing like an infinite loop with no escape condition. Your prison uniform, marked with the number O(n), feels heavy—not just with fabric, but with the weight of inefficiency. The reinforced digital bars hum with encrypted locks, and the ever-watchful warden, Algopone, prowls the halls, ensuring that no algorithm—no matter how optimized—breaks free.
+You wake up on a cold, steel bench, the flickering fluorescent light overhead buzzing like an infinite loop with no escape condition. 
+Your prison uniform, marked with the number O(n), feels heavy—not just with fabric, but with the weight of inefficiency. 
+The reinforced digital bars hum with encrypted locks, and the ever-watchful warden, Algopone, prowls the halls. 
+Ensuring that no algorithm -- no matter how optimized -- breaks free.
 
-Here in Algotraz, every second counts. The walls are lined with unsolved problems, etched in chalk by the ghosts of prisoners past. Some tried brute force and failed. Others sought elegance but were too slow. The only way out? Code your way to freedom.
+Here in Algotraz, every second counts. The walls are lined with unsolved problems, etched in chalk by the ghosts of prisoners past. 
+Some tried brute force and failed. Others sought elegance but were too slow. The only way out? Code your way to freedom.
 
-You hear whispers in the yard. A shadow leans in. It’s George “Machine Learning” Kelly, an old legend rumored to have nearly cracked the prison’s system. “They say there’s a way out,” he mutters. “Three rooms, three challenges. Each one testing your skill, your efficiency, your ability to think fast under pressure. Choose wrong, and you’ll be stuck here, looping… forever.”
+You hear whispers in the yard. A shadow leans in. 
+It's George "Machine Learning" Kelly, an old legend rumored to have nearly cracked the prison's system. 
+"They say there’s a way out," he mutters. "Three rooms, three challenges. 
+Each one testing your skill, your efficiency, your ability to think fast under pressure. Choose wrong, and you'll be stuck here, looping… forever."
 
 You clench your fists. The first room awaits. The clock is ticking. Will you escape, or will you be trapped in algorithmic purgatory?
