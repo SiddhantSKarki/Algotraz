@@ -6,10 +6,10 @@ import entities.Player;
 
 import java.util.Scanner;
 
-// TODO: Each of these implementations use hardcoded paths
-// Write a AlgotrazConfig class that contains all configuration parameters such as file paths, data directories etc.
 public class Algotraz {
     public static void main(String[] args) {
+        System.out.print("\033[H\033[2J");
+		System.out.flush();
         displayIntroArt();
         displayIntroMenu();
     }
@@ -40,7 +40,17 @@ public class Algotraz {
                     Player prisoner = new Player("1", "Pris(O)ner");
                     Engine gameEngine = new Engine(prisoner);
 
-                    gameEngine.startGame();
+                    gameEngine.startGame(scanner);
+
+                    System.out.println("Would you like to play again? (y/n)");
+                    String playAgain = scanner.nextLine().trim().toLowerCase(); 
+                    if (playAgain.equals("y") || playAgain.equals("yes")) {
+                        displayIntroMenu(); // Restart the intro menu
+                    } else {
+                        System.out.println("Thank you for playing Algotraz! Goodbye!");
+                        scanner.close();
+                        System.exit(0);
+                    }
 
                     return;
                 case "2":
@@ -60,7 +70,6 @@ public class Algotraz {
     }
 
     private static void displayStoryLine() {
-        // TODO: Maybe convert these path into parameter?
         String storyPath = "src/data/story/intro_description.txt";
         ASCII asciiStory = new ASCII(storyPath);
         System.out.println(asciiStory);

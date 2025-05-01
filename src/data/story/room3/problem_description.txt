@@ -1,11 +1,11 @@
-Level 3: The Guard Tower (Encryption)
-╔═════════════════════════════════════════════════════════╗
-║        [== GUARD TOWER ==]                                              ║
-║        [ ██████████████ ]  Red lights flash. Sirens blare.          ║
-║        [ █ ▓▓▓▓▓▓▓▓▓▓ █ ]                                            ║
-║        [ █ ▒▒▒▒▒▒▒▒▒▒ █ ]  ▸ Objective: Write a **one-liner Java**  ║
-║        [ █ ░░░░░░░░░░ █ ]    standard library expression to decode   ║
-║        [ █_______________█ ]    or transform data. Examples:            ║
-║                               `Integer.toBinaryString(n ^ 0xF0)`        ║
-║                             ▸ Must be correct and valid Java!          ║
-╚═════════════════════════════════════════════════════════╝
+                                    Level 3: The Guard Tower (Encryption)
+                                    ╔════════════════════════════════════════════════════════════════════════╗
+                                    ║        [== GUARD TOWER ==]                                             ║
+                                    ║        [ ██████████████ ]  Red lights flash. Sirens blare.             ║
+                                    ║        [ █ ▓▓▓▓▓▓▓▓▓▓ █ ]                                              ║
+                                    ║        [ █ ▒▒▒▒▒▒▒▒▒▒ █ ] -->  Objective: Write a **one-liner Java**   ║
+                                    ║        [ █ ░░░░░░░░░░ █ ]    standard library expression to decode     ║
+                                    ║        [ █____________█ ]    or transform data. Examples:              ║
+                                    ║                               'Integer.toBinaryString(n ^ 0xF0)'       ║
+                                    ║                           --> Must be correct and valid Java!          ║
+                                    ╚════════════════════════════════════════════════════════════════════════╝

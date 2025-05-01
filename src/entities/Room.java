@@ -26,18 +26,22 @@ public class Room {
 
 	final private int roomNumber;
 
+	final private int roomThreshold;
+
 	/**
 	 * Constructs a new Room with the specified path and room number.
 	 * The room's description and questions are loaded from the specified path.
 	 * 
 	 * @param roomPath the path to the room's directory
 	 * @param roomNumber the room/level number
+	 * @param threshold the threshold for the room
 	 */	
-    public Room(String roomPath, int roomNumber) {
+    public Room(String roomPath, int roomNumber, int threshold) {
         //this.timer = new Timer(0, 0, 0);
         this.questions = new ArrayList<>();
         this.description = loadDescription(roomPath);
 		this.roomNumber = roomNumber;
+		this.roomThreshold = threshold;
         loadQuestions(roomPath);
 	}
 
@@ -110,6 +114,15 @@ public class Room {
 	 */
 	public List<Question> getQuestions() {
 		return questions;
+	}
+
+	/**
+	 * Gets the room threshold.
+	 * 
+	 * @return the room threshold
+	 */
+	public int getRoomThreshold() {
+		return roomThreshold;
 	}
 
 	// public Timer getTimer() {

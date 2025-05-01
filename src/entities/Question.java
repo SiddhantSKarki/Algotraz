@@ -168,7 +168,7 @@ class MultipleChoiceQuestion extends Question {
 	public boolean checkPlayerAnswer(String input) {
 		// Convert input to lowercase for case-insensitive comparison
 		String upperInput = input.toUpperCase();
-		return upperInput.charAt(0) == correctAnswer;
+		return upperInput.charAt(0) == correctAnswer && input.length() == 1;
 	}
 }
 
