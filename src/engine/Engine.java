@@ -47,6 +47,8 @@ public class Engine {
 
 	private ArrayList<Integer> questionTimes;
 
+	private Sound sfx;
+
 	/**
 	 * Creates an Engine object to manage the game.
 	 *
@@ -63,6 +65,9 @@ public class Engine {
 		
 		// Initialize the game with the player ID and name
 		initializeGame(player.getId(), player.getName());
+
+		// Initialize the sound effects
+		this.sfx = new Sound("src/data/sound/gameStart.wav");
 
 		// Array of room directory names
 		String[] roomDirs = { "room1", "room2", "room3" };
@@ -215,6 +220,7 @@ public class Engine {
 
 		// Print to output
 		clearOutput();
+		sfx.playSound();
 		System.out.println("\n\n=== Entering Room " + currentRoom + " ===\n");
 		System.out.println(roomDescription + "\n");
 
@@ -298,6 +304,12 @@ public class Engine {
 			case 2:
 				currentQuestion++;
 				System.out.println("Points: " + points + "\n");
+
+				// Play sound effect based on correctness
+				sfx.setSound((playerCorrect) ? "src/data/sound/questionRight.wav"
+						: "src/data/sound/questionWrong.wav");
+				sfx.playSound();
+				
 				break;
 			case 3:
 				System.out.println("Points: " + points + "\n");
@@ -316,9 +328,13 @@ public class Engine {
 							// Check if player score is greater than total points of all rooms
 							if (totalPlayerScore() > rooms.stream()
 									.mapToInt(Room::getRoomThreshold).sum() + 200) {
+								sfx.setSound("src/data/sound/youWin.wav");
+								sfx.playSound();
 								fileScanner = new Scanner(new java.io.File("src/data/story/youWin.txt"));
 								asciiDisplay.readFile("src/data/ascii/youWinASCII.txt");
 							} else {
+								sfx.setSound("src/data/sound/gameOver.wav");
+								sfx.playSound();
 								fileScanner = new Scanner(new java.io.File("src/data/story/gameOver.txt"));
 								asciiDisplay.readFile("src/data/ascii/gameOverASCII.txt");
 							}
@@ -345,6 +361,8 @@ public class Engine {
 
 					} else {
 						clearOutput();
+						sfx.setSound("src/data/sound/roomComplete.wav");
+						sfx.playSound();
 
 						// Move to next room
 						System.out.println(
@@ -363,6 +381,8 @@ public class Engine {
 					}
 				} else {
 					clearOutput();
+					sfx.setSound("src/data/sound/roomFailed.wav");
+					sfx.playSound();
 
 					String roomDescription = getCurrentRoom(currentRoom).getDescription();
 					System.out.println("\n\n=== Entering Room " + currentRoom + " ===\n");

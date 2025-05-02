@@ -2,6 +2,7 @@ package main;
 
 import engine.ASCII;
 import engine.Engine;
+import engine.MenuSound;
 import entities.Player;
 
 import java.util.Scanner;
@@ -27,6 +28,10 @@ public class Algotraz {
      * The menu is displayed in a loop until the player chooses to exit or starts the game.
      */
     private static void displayIntroMenu() {
+        MenuSound menuSound = new MenuSound("src/data/sound/menuIntro.wav", "src/data/sound/menuLoop.wav");
+        menuSound.setLoop(true);
+        menuSound.playSound();
+
         displayStoryLine();
         System.out.println("Please select an option:");
         System.out.println("1) Start Game");
@@ -46,11 +51,13 @@ public class Algotraz {
                     Player prisoner = new Player("1", "Pris(O)ner");
                     Engine gameEngine = new Engine(prisoner);
 
+                    menuSound.stopSound(); // Stop the menu sound
                     gameEngine.startGame(scanner);
 
                     System.out.println("Would you like to play again? (y/n)");
                     String playAgain = scanner.nextLine().trim().toLowerCase(); 
                     if (playAgain.equals("y") || playAgain.equals("yes")) {
+                        gameEngine.clearOutput();
                         displayIntroMenu(); // Restart the intro menu
                     } else {
                         System.out.println("Thank you for playing Algotraz! Goodbye!");
