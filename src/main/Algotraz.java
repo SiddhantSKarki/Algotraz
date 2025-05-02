@@ -6,20 +6,26 @@ import entities.Player;
 
 import java.util.Scanner;
 
+/**
+ * The main class for the Algotraz game.
+ * This class initializes the game, displays the introduction, and handles the main menu logic.
+ */
 public class Algotraz {
-    public static void main(String[] args) {
-        System.out.print("\033[H\033[2J");
-		System.out.flush();
-        displayIntroArt();
-        displayIntroMenu();
-    }
 
+    /**
+     * Displays the introductory ASCII art for the game.
+     * The ASCII art is loaded from a file located at "src/data/ascii/welcome.txt".
+     */
     private static void displayIntroArt() {
         String introArtPath = "src/data/ascii/welcome.txt";
         ASCII asciiIntro = new ASCII(introArtPath);
         System.out.println(asciiIntro);
     }
 
+    /**
+     * Displays the main menu for the game, allowing the player to start the game, view help, or exit.
+     * The menu is displayed in a loop until the player chooses to exit or starts the game.
+     */
     private static void displayIntroMenu() {
         displayStoryLine();
         System.out.println("Please select an option:");
@@ -69,16 +75,37 @@ public class Algotraz {
         }
     }
 
+    /**
+     * Displays the introductory story line for the game.
+     * The story line is loaded from a file located at "src/data/story/intro_description.txt".
+     */
     private static void displayStoryLine() {
         String storyPath = "src/data/story/intro_description.txt";
         ASCII asciiStory = new ASCII(storyPath);
         System.out.println(asciiStory);
     }
 
+    /**
+     * Displays the help information for the game.
+     * This includes a list of available commands and their descriptions.
+     */
     private static void displayHelp() {
         System.out.println("Available commands:");
         System.out.println("1) Start Game - Begin your journey in Algotraz.");
         System.out.println("2) Help - View the list of available commands.");
         System.out.println("3) Exit - Exit the game.");
+    }
+
+    /**
+     * The main entry point of the application.
+     * Clears the console, displays the introduction art, and shows the main menu.
+     *
+     * @param args Command-line arguments (not used).
+     */
+    public static void main(String[] args) {
+        System.out.print("\033[H\033[2J");
+		System.out.flush();
+        displayIntroArt();
+        displayIntroMenu();
     }
 }
