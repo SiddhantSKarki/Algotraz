@@ -77,7 +77,7 @@ public class Engine {
 			Room room = new Room("src/data/story/" + roomDirs[i], roomNumber, roomThresholds[i]);
 
 			// Add to rooms list
-			rooms.addLast(room);
+			rooms.add(room);
 		}
 	}
 
