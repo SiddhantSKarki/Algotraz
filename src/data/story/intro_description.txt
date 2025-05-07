@@ -8,7 +8,7 @@ Some tried brute force and failed. Others sought elegance but were too slow. The
 
 You hear whispers in the yard. A shadow leans in. 
 It's George "Machine Learning" Kelly, an old legend rumored to have nearly cracked the prison's system. 
-"They say there’s a way out," he mutters. "Three rooms, three challenges. 
+"They say there's a way out," he mutters. "Three rooms, three challenges. 
 Each one testing your skill, your efficiency, your ability to think fast under pressure. Choose wrong, and you'll be stuck here, looping… forever."
 
 You clench your fists. The first room awaits. The clock is ticking. Will you escape, or will you be trapped in algorithmic purgatory?
